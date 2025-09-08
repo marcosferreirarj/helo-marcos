@@ -1,0 +1,221 @@
+/* ---------- VARIÁVEIS ---------- */
+:root {
+  --pink-100: #ffeef5;
+  --pink-300: #ffb6d2;
+  --pink-500: #ff6fa6;
+  --pink-700: #e24b86;
+  --muted: #6b6b6b;
+  --card-bg: #ffffffcc;
+  --glass: rgba(255,255,255,0.6);
+  --radius: 14px;
+  --max-width: 1100px;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ---------- RESET ---------- */
+* { box-sizing: border-box; }
+html, body { 
+  min-height: 100%; /* <-- AQUI ESTÁ A CORREÇÃO! */
+  margin: 0; 
+  padding: 0; 
+}
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(180deg, var(--pink-100), #fff);
+  color: #222;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* ---------- WRAP ---------- */
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  overflow: hidden;
+  border: 1px solid rgba(255,111,166,0.08);
+}
+
+/* ---------- HEADER ---------- */
+header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: linear-gradient(90deg, rgba(255,111,166,0.06), rgba(226,75,134,0.02));
+  position: relative;
+}
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--pink-500);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0; /* Impede que o logo encolha */
+}
+.title { flex-grow: 1; } /* Permite que o título ocupe o espaço disponível */
+.title h1 { margin: 0; font-size: 18px; }
+.title p { margin: 0; color: var(--muted); font-size: 13px; }
+
+/* ---------- NAV ---------- */
+nav {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+.nav-link {
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--pink-700);
+  font-weight: 600;
+  background: transparent;
+  flex-shrink: 0;
+}
+.nav-link.active, .nav-link:hover { background: var(--pink-300); color: #fff; }
+.hamburger {
+  display: none;
+  margin-left: auto;
+  background: transparent;
+  border: 0;
+  font-size: 22px;
+  color: var(--pink-700);
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: start;
+}
+.hero-left h2 { margin: 0 0 8px 0; font-size: 24px; }
+.hero-left p { margin: 0; color: var(--muted); }
+.date-pill {
+  margin-top: 12px;
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--pink-500);
+  color: #fff;
+  font-weight: 700;
+}
+.hero-aside {
+  padding: 16px;
+  background: var(--glass);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.map-embed { width: 100%; height: 200px; border: 0; border-radius: 8px; }
+
+/* ---------- CONTENT ---------- */
+.content { padding: 20px; }
+.page { display: none; }
+.page.active { display: block; }
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 120px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  min-width: 0;
+}
+.card h3 { margin: 0 0 6px 0; font-size: 16px; }
+.card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* ---------- BOTÕES E OUTROS ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 9px 12px; border-radius: 8px; border: 0;
+  background: var(--pink-500); color: #fff; font-weight: 600;
+  text-decoration: none; cursor: pointer; min-width: 0;
+  white-space: nowrap;
+}
+.card > .btn, .card a.btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+.btn.ghost {
+  background: transparent; color: var(--pink-700);
+  border: 1px solid rgba(255,111,166,0.16);
+}
+.card h3, .card p {
+  margin: 0 0 6px 0; font-size: 14px; color: var(--muted);
+  line-height: 1.4; white-space: normal; overflow-wrap: break-word;
+}
+.card h3 { font-size: 16px; color: #222; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(255,111,166,0.03), transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+   ---------- REGRAS RESPONSIVAS ----------
+   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .title { flex-grow: 1; } /* Garante que o título ocupe o espaço vazio */
+  nav {
+    display: none; /* Inicia escondido por padrão */
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    z-index: 10;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+  }
+  nav.open { display: flex; } /* JavaScript vai controlar essa classe */
+  nav .nav-link {
+    padding: 14px; text-align: center; border-radius: 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  nav .nav-link:last-child { border-bottom: none; }
+  .hamburger { display: inline-block; }
+}
+
+@media (max-width: 500px) {
+  body { padding: 0; }
+  .wrap { border-radius: 0; }
+  .card > .btn, .card a.btn { align-self: stretch; width: 100%; white-space: normal; }
+  footer { flex-wrap: wrap; justify-content: center; text-align: center; }
+  .hero-left h2 { font-size: 20px; }
+  .title h1 { font-size: 16px; }
+}
